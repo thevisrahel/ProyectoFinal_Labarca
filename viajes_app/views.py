@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Viaje
 from .forms import ViajeForm
 
-# 🏠 Vista principal
 def inicio(request):
     return render(request, 'viajes_app/inicio.html')
 
