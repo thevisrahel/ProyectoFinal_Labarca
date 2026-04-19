@@ -10,7 +10,7 @@ def crear_viaje(request):
     mensaje = ""
 
     if request.method == "POST":
-        form = ViajeForm(request.POST)
+        form = ViajeForm(request.POST, request.FILES)  # 👈 AQUÍ
         if form.is_valid():
             form.save()
             mensaje = "Viaje creado correctamente"
@@ -22,7 +22,6 @@ def crear_viaje(request):
         'form': form,
         'mensaje': mensaje
     })
-
 
 def listar_viajes(request):
     query = request.GET.get('q')

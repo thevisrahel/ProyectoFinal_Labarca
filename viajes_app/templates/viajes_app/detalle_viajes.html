@@ -1,15 +1,25 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block texto_pestania %}
     Detalle de viaje
 {% endblock %}
 
+
+
+{% block header_imagen %}
+    {% if viaje.imagen %}
+        {{ viaje.imagen.url }}
+    {% else %}
+        {% static 'assets/img/about-bg.jpg' %}
+    {% endif %}
+{% endblock %}
+
 {% block header_h1 %}
-    Viaje: {{ viaje.pk }}
+    Viaje: {{ viaje.destino }}
 {% endblock %}
 
 {% block contenido %}
-    <p>Destino: {{ viaje.destino }}</p>
     <p>Descripcion: {{ viaje.descripcion }}</p>
     <p>Fecha: {{ viaje.fecha }}</p>
 {% endblock %}

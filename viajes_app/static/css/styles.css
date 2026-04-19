@@ -78,13 +78,11 @@
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
@@ -10677,15 +10675,14 @@ header.masthead {
   background-size: cover;
   background-attachment: scroll;
 }
-header.masthead:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #212529;
-  opacity: 0.5;
+
+header.masthead::before {
+  content: none;
+}
+
+header.masthead .site-heading h1 {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 header.masthead .page-heading,
 header.masthead .post-heading,

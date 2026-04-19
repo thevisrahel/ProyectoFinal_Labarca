@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 
-    {% block texto_pestania  %}
-        Crear viaje
-    {% endblock  %}
+{% block texto_pestania  %}
+    Crear viaje
+{% endblock  %}
 
-    {% block header_h1%}
-        CREAR VIAJE
-    {% endblock %}
-
+{% block header_h1%}
+    CREAR VIAJE
+{% endblock %}
 
 {% block contenido %}
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">  <!-- 👈 SOLO SE AÑADIÓ ESTO -->
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Guardar</button>
