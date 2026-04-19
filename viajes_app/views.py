@@ -10,7 +10,7 @@ def crear_viaje(request):
     mensaje = ""
 
     if request.method == "POST":
-        form = ViajeForm(request.POST, request.FILES)  # 👈 AQUÍ
+        form = ViajeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             mensaje = "Viaje creado correctamente"

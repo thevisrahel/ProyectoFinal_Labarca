@@ -88,7 +88,20 @@
     scroll-behavior: smooth;
   }
 }
-
+#mainNav a,
+#mainNav .nav-link,
+#mainNav .navbar-brand,
+#mainNav button {
+  text-shadow: 0.3px 0.3px 1px rgba(0,0,0,0.4);
+}
+@media (max-width: 991px) {
+  #mainNav a,
+  #mainNav .nav-link,
+  #mainNav .navbar-brand,
+  #mainNav button {
+    text-shadow: none;
+  }
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
