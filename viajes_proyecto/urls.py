@@ -30,8 +30,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # 👇 ESTE ES EL NOMBRE CORRECTO
     path('', include('viajes_app.urls')),
+    path('fotos/', include('fotos_app.urls')),
 ]
 
 if settings.DEBUG:

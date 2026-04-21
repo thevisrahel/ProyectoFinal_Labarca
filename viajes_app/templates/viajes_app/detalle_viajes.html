@@ -2,24 +2,46 @@
 {% load static %}
 
 {% block texto_pestania %}
-    Detalle de viaje
+Detalle de viaje
 {% endblock %}
 
-
-
 {% block header_imagen %}
-    {% if viaje.imagen %}
-        {{ viaje.imagen.url }}
-    {% else %}
-        {% static 'assets/img/about-bg.jpg' %}
-    {% endif %}
+{% if viaje.imagen %}
+{{ viaje.imagen.url }}
+{% else %}
+{% static 'assets/img/about-bg.jpg' %}
+{% endif %}
 {% endblock %}
 
 {% block header_h1 %}
-    Viaje: {{ viaje.destino }}
+Viaje: {{ viaje.destino }}
 {% endblock %}
 
 {% block contenido %}
-    <p>Descripcion: {{ viaje.descripcion }}</p>
-    <p>Fecha: {{ viaje.fecha }}</p>
+
+<p><strong>Descripción:</strong> {{ viaje.descripcion }}</p>
+<p><strong>Fecha:</strong> {{ viaje.fecha }}</p>
+
+<h3>Fotos del viaje</h3>
+
+<a href="{% url 'fotos:subir' viaje.id %}">Subir foto</a>
+
+<div>
+    {% for foto in viaje.foto_set.all %}
+        <div style="margin-bottom: 20px;">
+            <img src="{{ foto.imagen.url }}" width="200">
+            <p>{{ foto.descripcion }}</p>
+
+        <form action="{% url 'fotos:eliminar_foto' foto.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Eliminar</button>
+        </form>
+
+    </div>
+{% empty %}
+    <p>No hay fotos aún</p>
+{% endfor %}
+
+</div>
+
 {% endblock %}

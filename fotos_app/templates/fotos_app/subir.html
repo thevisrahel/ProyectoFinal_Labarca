@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block texto_pestania  %}
+    Subir Fotos
+{% endblock  %}
+
+{% block header_h1%}
+    SUBIR FOTOS
+{% endblock %}
+
+{% block contenido %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="file" name="imagen" multiple>
+
+    <br><br>
+
+    <button type="submit">Subir</button>
+</form>
+
+{% endblock %}
