@@ -1,27 +1,23 @@
 {% extends 'base.html' %}
 
-{% block texto_pestania %}
-    Iniciar sesión
-{% endblock %}
+{% block texto_pestania  %}
+    Actualizar Password
+{% endblock  %}
 
-{% block header_h1 %}
-    INICIAR SESIÓN
+{% block header_h1%}
+    ACTUALIZAR PASSWORD
 {% endblock %}
 
 {% block contenido %}
 
-<div class="container mt-5" style="max-width: 400px;">
+<div class="container mt-5" style="max-width: 500px;">
 
-    <form action="{% url 'usuarios:iniciar_sesion' %}" method="post" class="card p-4 shadow-sm">
+    <h2 class="text-center mb-4">Cambiar contraseña</h2>
+
+    <form method="post" class="card p-4 shadow-sm">
         {% csrf_token %}
 
-        {% if formulario_iniciar_sesion.non_field_errors %}
-            <div class="alert alert-danger">
-                {{ formulario_iniciar_sesion.non_field_errors }}
-            </div>
-        {% endif %}
-        
-        {% for field in formulario_iniciar_sesion %}
+        {% for field in form %}
             <div class="mb-3">
                 <label class="form-label">{{ field.label }}</label>
                 {{ field }}
@@ -35,9 +31,8 @@
         {% endfor %}
 
         <button type="submit" class="btn btn-primary w-100">
-            Iniciar sesión
+            Actualizar contraseña
         </button>
-
     </form>
 
 </div>

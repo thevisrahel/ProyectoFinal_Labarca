@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block texto_pestania  %}
+    Actualizar Perfil
+{% endblock  %}
+
+{% block header_h1%}
+    ACTUALIZAR PERFIL
+{% endblock %}
+
+{% block contenido %}
+
+<form action="{% url "usuarios:actualizar_perfil" %}" method="post" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    <input type="submit" value="Actualizar Perfil" >
+</form>
+
+{% endblock %}

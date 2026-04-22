@@ -1,23 +1,52 @@
 {% extends 'base.html' %}
 
-{% block texto_pestania  %}
+{% block texto_pestania %}
     Crear viaje
-{% endblock  %}
+{% endblock %}
 
-{% block header_h1%}
+{% block header_h1 %}
     CREAR VIAJE
 {% endblock %}
 
 {% block contenido %}
 
-<form method="post" enctype="multipart/form-data"> 
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-</form>
+<div class="container mt-5" style="max-width: 600px;">
 
-{% if mensaje %}
-    <p>{{ mensaje }}</p>
-{% endif %}
+    <div class="card shadow-sm p-4">
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="mb-3">
+
+                    <label class="form-label">{{ field.label }}</label>
+
+                    {{ field }}
+
+                    {% if field.errors %}
+                        <div class="text-danger small">
+                            {{ field.errors|striptags }}
+                        </div>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-success w-100">
+                Guardar viaje
+            </button>
+
+        </form>
+
+    </div>
+
+    {% if mensaje %}
+        <div class="alert alert-info mt-3 text-center">
+            {{ mensaje }}
+        </div>
+    {% endif %}
+
+</div>
 
 {% endblock %}

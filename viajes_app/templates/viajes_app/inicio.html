@@ -1,15 +1,33 @@
 {% extends 'base.html' %}
 
-    {% block texto_pestania  %}
-        Inicio
-    {% endblock  %}
+{% block texto_pestania %}
+Inicio
+{% endblock %}
 
-    {% block  header_h1%}
-        BIENVENIDO A LA WEB DE VIAJES
-    {% endblock  %}
+{% block header_h1 %}
+BIENVENIDO A TU PLATAFORMA DE VIAJES
+{% endblock %}
 
 {% block contenido %}
 
-<p>Explora destinos, crea nuevos viajes y revisa tus recorridos.</p>
+<div class="container mt-5 text-center">
+
+    <div class="card shadow-sm p-5">
+
+        <h2 class="mb-3"> Explora el mundo desde aquí</h2>
+
+        <p class="text-muted mb-4">
+            Crea viajes, organiza tus destinos y guarda tus experiencias en un solo lugar.
+        </p>
+
+        <div class="mt-4">
+
+        <p class="text-muted fst-italic">
+            “Viajar es la única cosa que compras y te hace más rico.”
+        </p>
+
+    </div>
+
+</div>
 
 {% endblock %}
